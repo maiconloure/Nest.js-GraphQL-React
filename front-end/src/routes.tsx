@@ -1,12 +1,14 @@
 import React from 'react';
-import { Routes as Router, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import Board from './pages/Board';
+import Home from './pages/Home';
 
 export default function Routes() {
   return (
-    <Router>
-      <Route path="/" element={Home} />
-      <Route path="/" element={Messages} />
-      <Route path="/" element={() => <h1>404 - Page not found</h1>} />
-    </Router>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/dashboard" component={Board} />
+      <Route path="/" component={() => <h1>404 - Page not found</h1>} />
+    </Switch>
   )
 }
